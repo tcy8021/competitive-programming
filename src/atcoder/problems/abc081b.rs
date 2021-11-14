@@ -1,16 +1,20 @@
-use std::cmp;
-use std::io;
-
-fn read_vec() -> Vec<String> {
+fn read_input<T>() -> Vec<T>
+where
+    T: std::str::FromStr,
+    <T as std::str::FromStr>::Err: std::fmt::Debug,
+{
     let mut input = String::new();
-    let _ = io::stdin().read_line(&mut input);
-    let v: Vec<String> = input.split_whitespace().map(|s| s.to_string()).collect();
+    let _ = std::io::stdin().read_line(&mut input);
+    let v: Vec<T> = input
+        .split(' ')
+        .map(|s| s.trim_end().parse().unwrap())
+        .collect();
     v
 }
 
 fn main() {
-    let _n: i64 = read_vec()[0].parse().unwrap();
-    let v: Vec<i64> = read_vec().into_iter().map(|s| s.parse().unwrap()).collect();
+    let _n: i64 = read_input()[0];
+    let v: Vec<i64> = read_input();
 
     let mut result = 1000000000;
     for mut a in v {
@@ -19,7 +23,7 @@ fn main() {
             a /= 2;
             div_cnt += 1;
         }
-        result = cmp::min(result, div_cnt);
+        result = std::cmp::min(result, div_cnt);
     }
 
     println!("{}", result);
