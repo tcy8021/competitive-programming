@@ -11,7 +11,7 @@ where
     let v: Vec<T> = input
         .replace("\n", "")
         .split(' ')
-        .map(|s| s.trim_end().parse().unwrap())
+        .map(|s| s.parse().unwrap())
         .collect();
     v
 }
