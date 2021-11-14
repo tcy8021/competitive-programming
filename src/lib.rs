@@ -1,5 +1,7 @@
+#![allow(dead_code)]
+
 // 標準入力を空白で区切って Vec<T> を返す(T は int, float, string では動作確認済み)
-fn read_input<T>() -> Vec<T>
+fn read_input_to_vec<T>() -> Vec<T>
 where
     T: std::str::FromStr,
     <T as std::str::FromStr>::Err: std::fmt::Debug,

@@ -1,6 +1,4 @@
-use std::cmp;
-
-fn read_input<T>() -> Vec<T>
+fn read_input_to_vec<T>() -> Vec<T>
 where
     T: std::str::FromStr,
     <T as std::str::FromStr>::Err: std::fmt::Debug,
@@ -15,18 +13,12 @@ where
 }
 
 fn main() {
-    let _n: i64 = read_input()[0];
-    let v: Vec<i64> = read_input();
+    let n: i64 = read_input_to_vec()[0];
+    let mut v: Vec<Vec<i64>> = Vec::new();
 
-    let mut result = 1000000000;
-    for mut a in v {
-        let mut div_cnt = 0;
-        while a % 2 == 0 {
-            a /= 2;
-            div_cnt += 1;
-        }
-        result = cmp::min(result, div_cnt);
+    for _ in 0..n {
+        v.push(read_input_to_vec());
     }
 
-    println!("{}", result);
+    println!("{:?}", v);
 }
