@@ -9,6 +9,7 @@ where
     let mut input = String::new();
     let _ = std::io::stdin().read_line(&mut input);
     let v: Vec<T> = input
+        .replace("\n", "")
         .split(' ')
         .map(|s| s.trim_end().parse().unwrap())
         .collect();
