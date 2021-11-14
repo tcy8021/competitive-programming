@@ -2,7 +2,7 @@ use std::cmp;
 
 fn read_input<T>() -> Vec<T>
 where
-    T: std::fmt::Debug + std::str::FromStr,
+    T: std::str::FromStr,
     <T as std::str::FromStr>::Err: std::fmt::Debug,
 {
     let mut input = String::new();
