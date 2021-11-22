@@ -1,4 +1,4 @@
-# 配る DP
+# 貰う遷移形式
 n = int(input())
 h = list(map(int, input().split()))
 
